@@ -67,11 +67,40 @@ public class Trees {
 		}
 		private BNode add(T t, BNode n) {
 			if (n == null) 
-				return new BNode(t);
+				return new BNode<T>(t);
 			if (n.value.compareTo(t) < 0)
 				return n.right = add(t, n.right);
 			if (n.value.compareTo(t) > 0)
 				return n.left = add(t, n.left);
+			else
+				;
+			return n;
+		}
+		
+		public void remove(T t) {
+			this.root = remove(t, this.root);
+		}
+		private BNode remove(T t, BNode n) {
+			if (n == null)
+				return n;
+			if (n.value.equals(t)) {
+				
+			}
 		}
 	}
 }
+
+/*
+	I wanted to 
+	add more
+	comments 
+	so that
+	my scroll 
+	wheel
+	isn't 
+	a
+	pain
+
+
+
+*/
