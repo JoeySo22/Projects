@@ -60,7 +60,18 @@ public class Trees {
 		public void add(T t) {
 			if (this.root == null)
 				this.root = new BNode<T>(t);
-			
+			else if (this.root.value.compareTo(t) < 0)
+				this.root.right = add(t, this.root);
+			else if (this.root.value.compareTo(t) > 0)
+				this.root.left = add(t, this.root);
+		}
+		private BNode add(T t, BNode n) {
+			if (n == null) 
+				return new BNode(t);
+			if (n.value.compareTo(t) < 0)
+				return n.right = add(t, n.right);
+			if (n.value.compareTo(t) > 0)
+				return n.left = add(t, n.left);
 		}
 	}
 }

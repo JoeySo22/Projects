@@ -19,11 +19,11 @@ public class JoeSort
         array[y] = temp;
     }
 
-    
+    // We use insertion sort for arrays that are already close to being sorted least to great.
     public static class Insertion{
         public static void sort(Comparable[] a) {
             for (int x = 1; x < a.length; x++) {
-                for (int y = x; y >= 0; y--) {
+                for (int y = x; y > 0; y--) {
                     if (a[y].compareTo(a[y-1]) < 0)
                         swap(a, y, y-1);
                 }
@@ -33,7 +33,7 @@ public class JoeSort
     }
 
     // We use this quicksort for arrays that have few unique values
-    public static class Quick
+    /*public static class Quick
     {
         public static void sort(Comparable[] common_array){
             sort(common_array, 0, -1);
@@ -44,7 +44,7 @@ public class JoeSort
 		private static int partition(Comparable[] a, int l, int h) {
 			
 		}
-    }
+    }*/
 
     //We use this heapsort for arrays that are random values
     public static class Heap
