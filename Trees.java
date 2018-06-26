@@ -76,17 +76,6 @@ public class Trees {
 				;
 			return n;
 		}
-		
-		public void remove(T t) {
-			this.root = remove(t, this.root);
-		}
-		private BNode remove(T t, BNode n) {
-			if (n == null)
-				return n;
-			if (n.value.equals(t)) {
-				//comment here for PROOF
-			}
-		}
 	}
 }
 
