@@ -167,7 +167,7 @@ public class Trees {
 		public void add(T object) {
 			this.root = add(object, this.root);
 		}
-		private ABNode add(T t, ABNode node) {
+		private ABNode<T> add(T t, ABNode node) {
 			if (node == null)
 				return new ABNode(t);
 			else {
