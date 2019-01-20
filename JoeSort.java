@@ -11,6 +11,13 @@
  */
 public class JoeSort
 {
+	
+	//For non-instantiability
+	private JoeSort()
+	{
+		throws new AssertionError();
+	}
+	
     // Helper method for each sort.
     private static void swap(Comparable[] array, int x, int y) {
         //System.out.println("Swapping: " + array[x].toString() + " & " + array[y].toString());
@@ -20,10 +27,20 @@ public class JoeSort
     }
 
     // We use insertion sort for arrays that are already close to being sorted least to great.
-    public static class Insertion{
-        public static void sort(Comparable[] a) {
-            for (int x = 1; x < a.length; x++) {
-                for (int y = x; y > 0; y--) {
+    public static class Insertion
+	{
+		//For non-instantiability
+		private Insertion()
+		{
+			throws new AssertionError();
+		}
+		
+        public static void sort(Comparable[] a) 
+		{
+            for (int x = 1; x < a.length; x++) 
+			{
+                for (int y = x; y > 0; y--) 
+				{
                     if (a[y].compareTo(a[y-1]) < 0)
                         swap(a, y, y-1);
                 }
@@ -35,6 +52,12 @@ public class JoeSort
     // We use this quicksort for arrays that have few unique values
     /*public static class Quick
     {
+		//For non-instantiability
+		private Quick()
+		{
+			throws new AssertionError();
+		}
+		
         public static void sort(Comparable[] common_array){
             sort(common_array, 0, -1);
         }
@@ -49,6 +72,12 @@ public class JoeSort
     //We use this heapsort for arrays that are random values
     public static class Heap
     {
+		//For non-instantiablity
+		private Heap()
+		{
+			throws new AssertionError();
+		}
+		
         public static void sort(Comparable[] random_array) {
             for (int x = random_array.length / 2 - 1; x >= 0; x--)
                 heapify(random_array, x, x*2+1, x*2+2, random_array.length);
