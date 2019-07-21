@@ -13,12 +13,14 @@ public class JoeSort
 	//For non-instantiability
 	private JoeSort()
 	{
-		throws new AssertionError("Static tools, no instatiation");
+		throw new AssertionError("Static tools, no instatiation");
 	}
 	
     // Helper method for each sort.
-    private static void swap(Comparable[] array, int x, int y) {
-        //System.out.println("Swapping: " + array[x].toString() + " & " + array[y].toString());
+    private static void swap(Comparable[] array, int x, int y, boolean debug) {
+        if (debug){
+			System.out.println("Swapping: " + array[x].toString() + " & " + array[y].toString());
+		}
         Comparable temp = array[x];
         array[x] = array[y];
         array[y] = temp;
@@ -33,14 +35,14 @@ public class JoeSort
 			throw new AssertionError("Static tools, no instatiation");
 		}
 		
-        public static void sort(Comparable[] a) 
+        public static void sort(Comparable[] a, boolean debug) 
 		{
             for (int x = 1; x < a.length; x++) 
 			{
                 for (int y = x; y > 0; y--) 
 				{
                     if (a[y].compareTo(a[y-1]) < 0)
-                        swap(a, y, y-1);
+                        swap(a, y, y-1, debug);
                 }
             } 
         }
@@ -76,23 +78,23 @@ public class JoeSort
 			throw new AssertionError("Static tools, no instatiation");
 		}
 		
-        public static void sort(Comparable[] random_array) {
+        public static void sort(Comparable[] random_array, boolean debug) {
             for (int x = random_array.length / 2 - 1; x >= 0; x--)
-                heapify(random_array, x, x*2+1, x*2+2, random_array.length);
+                heapify(random_array, x, x*2+1, x*2+2, random_array.length, debug);
             for (int x = random_array.length-1; x >= 0; x--) {
-                swap(random_array, 0, x);
+                swap(random_array, 0, x, debug);
                 heapify(random_array, 0, 1, 2, x);
             }
         }
 
-        private static void heapify(Comparable[] a, int p, int l, int r, int s) {
+        private static void heapify(Comparable[] a, int p, int l, int r, int s, boolean debug) {
             if (l < s && a[p].compareTo(a[l]) < 0) {
-                swap(a, p, l);
-                heapify(a, l, l*2+1, l*2+2, s);
+                swap(a, p, l, debug);
+                heapify(a, l, l*2+1, l*2+2, s, debug);
             }
             if (r < s && a[p].compareTo(a[r]) < 0) {
-                swap(a, p, r);
-                heapify(a, r, r*2+1, r*2+2, s);
+                swap(a, p, r, debug);
+                heapify(a, r, r*2+1, r*2+2, s, debug);
             }
         }
     }
