@@ -1,4 +1,3 @@
-
 /*
     The main idea is to have different algorithms that perform the best under the 
     given circumstances. First we "diagnose" the array to see what kind of order it 
@@ -10,12 +9,11 @@
  * @version     1.1
  */
 public class JoeSort
-{
-	
+{	
 	//For non-instantiability
 	private JoeSort()
 	{
-		throws new AssertionError();
+		throws new AssertionError("Static tools, no instatiation");
 	}
 	
     // Helper method for each sort.
@@ -32,7 +30,7 @@ public class JoeSort
 		//For non-instantiability
 		private Insertion()
 		{
-			throws new AssertionError();
+			throw new AssertionError("Static tools, no instatiation");
 		}
 		
         public static void sort(Comparable[] a) 
@@ -55,7 +53,7 @@ public class JoeSort
 		//For non-instantiability
 		private Quick()
 		{
-			throws new AssertionError();
+			throws new AssertionError("Static tools, no instatiation");
 		}
 		
         public static void sort(Comparable[] common_array){
@@ -75,7 +73,7 @@ public class JoeSort
 		//For non-instantiablity
 		private Heap()
 		{
-			throws new AssertionError();
+			throw new AssertionError("Static tools, no instatiation");
 		}
 		
         public static void sort(Comparable[] random_array) {
